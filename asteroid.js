@@ -3,9 +3,10 @@
 
 	var MovingObject = Asteroids.MovingObject;
 
-	var Asteroid = Asteroids.Asteroid = function(radius, color){
-		this.COLOR = color;
-		this.RADIUS = radius
+	var Asteroid = Asteroids.Asteroid = function(radius, color) {
+		MovingObject.call(this, radius, color);
+		this.color = color;
+		this.radius = radius;
 	}
 
 	Function.prototype.inherits = function (superClass){
@@ -16,15 +17,15 @@
 
 	Asteroid.inherits(MovingObject);
 
-
 	Asteroid.prototype.randomAsteroid = function(dimX, dimY) {
 		//vel optional addition
 		//we might need to floor this if we want integers...
 		this.pos = [dimX * Math.random(), dimY * Math.random()];
-		this.velocity = this.randomVelocity(10);
+		this.vel = this.randomVelocity(10);
 	}
 
 	Asteroid.prototype.randomVelocity = function (num) {
-		return [num * Math.random(), num * Math.random()];
+		return [(2 * num * Math.random() - num),
+					 (2 * num * Math.random() - num)];
 	};
 })(this);

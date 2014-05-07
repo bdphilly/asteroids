@@ -20,7 +20,13 @@
 				// ast.move();
 				// ast.draw(ctx);
 				var game = new Asteroids.Game(ctx);
-				game.addAsteroids(10)
+				game.addAsteroids(10);
+				game.draw(ctx);
+
+				ctx.clearRect(0,0,500,500);
+				game.draw(ctx);
+				game.start(ctx);
+
     </script>
 </body>
 </html>

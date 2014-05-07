@@ -9,22 +9,23 @@
 	}
 
 	MovingObject.prototype.move = function() {
+
 		this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
 	}
 
-	MovingObject.prototype.draw = function(canvas) {
-		canvas.fillStyle = this.color;
-		canvas.beginPath();
-		canvas.arc(
+	MovingObject.prototype.draw = function(ctx) {
+		ctx.fillStyle = this.color;
+		ctx.beginPath();
+		ctx.arc(
 			this.pos[0],
 			this.pos[1],
 			this.radius,
 			0,
-			2* Math.PI,
+			2 * Math.PI,
 			false
 		);
-		canvas.fill();
-		// Canvas might be ctx
+		ctx.fill();
+		// debugger
 	}
 
 	MovingObject.prototype.isCollidedWith = function(otherObject) {
