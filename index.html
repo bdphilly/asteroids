@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DrunkenCircles</title>
+    <title>DrunkenAsteroids</title>
 </head>
 <body>
     <canvas width="500" height="500"></canvas>
 
-    <script src="moving_objet.js"></script>
+    <script src="moving_object.js"></script>
+    <script src="asteroid.js"></script>
+    <script src="game.js"></script>
+
+
     <script>
         var canvas = document.getElementsByTagName("canvas")[0];
-        new MovingObject([1,1], [1,1], 100, "blue").draw(canvas);
+				var ctx = canvas.getContext("2d");
+        var ast = new Asteroids
+											.MovingObject([200,200], [100,200], 50, "black");
+				ast.draw(ctx);
+				// ast.move();
+				// ast.draw(ctx);
+				var game = new Asteroids.Game(ctx);
+				game.addAsteroids(10)
     </script>
 </body>
 </html>

@@ -1,7 +1,12 @@
-var MovingObject = require('./moving_object');
-
 (function(root) {
-	var Asteroid = root.Asteroid = (root.Asteroid || {});
+	var Asteroids = root.Asteroids = (root.Asteroids || {})
+
+	var MovingObject = Asteroids.MovingObject;
+
+	var Asteroid = Asteroids.Asteroid = function(radius, color){
+		this.COLOR = color;
+		this.RADIUS = radius
+	}
 
 	Function.prototype.inherits = function (superClass){
 		function Surrogate(){};
@@ -12,23 +17,14 @@ var MovingObject = require('./moving_object');
 	Asteroid.inherits(MovingObject);
 
 
-	//function MovingObject(pos, vel, radius, color) {
-	function Asteroid (radius, color){
-		this.COLOR = color;
-		this.RADIUS = radius
-	}
-
 	Asteroid.prototype.randomAsteroid = function(dimX, dimY) {
-
+		//vel optional addition
 		//we might need to floor this if we want integers...
 		this.pos = [dimX * Math.random(), dimY * Math.random()];
-
-		this.velocity = Math.random();
+		this.velocity = this.randomVelocity(10);
 	}
 
-	Asteroid.prototype.randomVelocity = function () {
-
+	Asteroid.prototype.randomVelocity = function (num) {
+		return [num * Math.random(), num * Math.random()];
 	};
-
-
 })(this);
