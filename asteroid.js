@@ -4,7 +4,7 @@
 	var MovingObject = Asteroids.MovingObject;
 
 	var Asteroid = Asteroids.Asteroid = function(radius, color) {
-		MovingObject.call(this, radius, color);
+		// MovingObject.call(this, radius, color);
 		this.color = color;
 		this.radius = radius;
 	}
@@ -21,7 +21,7 @@
 		//vel optional addition
 		//we might need to floor this if we want integers...
 		this.pos = [dimX * Math.random(), dimY * Math.random()];
-		this.vel = this.randomVelocity(10);
+		this.vel = this.randomVelocity(1);
 	}
 
 	Asteroid.prototype.randomVelocity = function (num) {

@@ -35,4 +35,12 @@
 		return (this.radius + otherObject.radius > distance);
 	}
 
+	MovingObject.prototype.isOffEdge = function (x, y) {
+
+	  return ((this.pos[0] + this.radius - x > 0) ||
+ 			     (this.pos[0] + this.radius < 0)     ||
+ 				   (this.pos[1] + this.radius - y > 0) ||
+			     (this.pos[1] + this.radius < 0))
+	};
+
 })(this);
