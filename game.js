@@ -11,6 +11,54 @@
 		this.ship = new Asteroids.Ship([500,500], 20, "blue");
 	};
 
+	Game.prototype.start = function (ctx) {
+		var game = this;
+		game.bindKeyHandlers();
+		var timer = window.setInterval(function() {
+			game.step(ctx)
+			game.stop(timer)
+		}, game.FPS);
+	};
+
+
+	Game.prototype.bindKeyHandlers = function () {
+
+		// if (key.shift) {this.ship.power([.1,.1])};
+			// var game = this;
+			// key('shift', function() {
+			// 	game.ship.power([10,10]);
+			// });
+			//
+			// var game = this;
+			// if (key.isPressed('shift'))  {
+			// 			{game.ship.power([10,10])};
+			// 			window.alert("shift was pressed!")
+			// 		}
+
+			var game = this;
+
+			key('w', function() {
+				game.ship.power([0, -.1]);
+				// this.
+			});
+
+			key('s', function() {
+				game.ship.power([0, .1]);
+				// this.
+			});
+
+			key('d', function() {
+				game.ship.power([.1, 0]);
+				// this.
+			});
+
+			key('a', function() {
+				game.ship.power([-.1, 0]);
+				// this.
+			});
+
+	};
+
 	Game.prototype.addAsteroids = function(numAsteroids) {
 		for(var i = 0; i < numAsteroids; i++ ) {
 			var asteroid = new Asteroids.Asteroid((50 * Math.random()), "black");
@@ -39,6 +87,7 @@
 		this.move();
 		this.draw(ctx);
 		this.checkOffEdge();
+		// this.bindKeyHandlers();
 	};
 
 	Game.prototype.checkCollisions = function () {
@@ -69,13 +118,14 @@
 		}
 	};
 
-	Game.prototype.start = function (ctx) {
-		var game = this;
-		var timer = window.setInterval(function() {
-			game.step(ctx)
-			game.stop(timer)
-		}, game.FPS);
-	};
+	// Game.prototype.start = function (ctx) {
+	// 	var game = this;
+	// 	// game.bindKeyHandlers();
+	// 	var timer = window.setInterval(function() {
+	// 		game.step(ctx)
+	// 		game.stop(timer)
+	// 	}, game.FPS);
+	// };
 
 
 

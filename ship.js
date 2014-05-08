@@ -7,7 +7,7 @@
 		this.pos = pos;
 		this.radius = radius;
 		this.color = color;
-		this.vel = [1,1];
+		this.vel = [0,0];
 		//change this to user input
 	}
 
