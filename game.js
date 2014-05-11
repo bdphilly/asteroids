@@ -9,6 +9,7 @@
 		this.asteroids = [];
 		this.FPS = 10;
 		this.ship = new Asteroids.Ship([500,500], 20, "blue");
+		this.bullets = [];
 	};
 
 	Game.prototype.start = function (ctx) {
@@ -16,7 +17,7 @@
 		game.bindKeyHandlers();
 		var timer = window.setInterval(function() {
 			game.step(ctx)
-			game.stop(timer)
+			// game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
 		}, game.FPS);
 	};
 
@@ -39,24 +40,23 @@
 
 			key('w', function() {
 				game.ship.power([0, -.1]);
-				// this.
 			});
 
 			key('s', function() {
 				game.ship.power([0, .1]);
-				// this.
 			});
 
 			key('d', function() {
 				game.ship.power([.1, 0]);
-				// this.
 			});
 
 			key('a', function() {
 				game.ship.power([-.1, 0]);
-				// this.
 			});
 
+			key('space', function() {
+				game.fireBullet();
+			});
 	};
 
 	Game.prototype.addAsteroids = function(numAsteroids) {
@@ -71,13 +71,20 @@
 		for (var i = 0; i < this.asteroids.length; i++){
 			this.asteroids[i].draw(ctx);
 		}
+		for (var i = 0; i < this.bullets.length; i++){
+			debugger
+			this.bullets[i].draw(ctx);
+		}
 		this.ship.draw(ctx);
-
 	};
 
 	Game.prototype.move = function () {
 		for (var i = 0; i < this.asteroids.length; i++){
 			this.asteroids[i].move();
+		}
+		for (var i = 0; i < this.bullets.length; i++){
+			debugger
+			this.bullets[i].move();
 		}
 		this.ship.move();
 	};
@@ -86,7 +93,7 @@
 		ctx.clearRect(0,0,this.DIM_X, this.DIM_Y);
 		this.move();
 		this.draw(ctx);
-		this.checkOffEdge();
+		// this.checkOffEdge(); //PUT THIS BACK IN AFTER TESTING IS DONE!
 		// this.bindKeyHandlers();
 	};
 
@@ -118,6 +125,13 @@
 		}
 	};
 
+	Game.prototype.fireBullet = function() {
+
+		var newBullet = this.ship.fireBullet();
+		this.bullets.push(newBullet);
+		debugger
+	};
+
 	// Game.prototype.start = function (ctx) {
 	// 	var game = this;
 	// 	// game.bindKeyHandlers();
@@ -126,7 +140,4 @@
 	// 		game.stop(timer)
 	// 	}, game.FPS);
 	// };
-
-
-
 })(this);
