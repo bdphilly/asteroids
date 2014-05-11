@@ -72,7 +72,6 @@
 			this.asteroids[i].draw(ctx);
 		}
 		for (var i = 0; i < this.bullets.length; i++){
-			debugger
 			this.bullets[i].draw(ctx);
 		}
 		this.ship.draw(ctx);
@@ -83,7 +82,6 @@
 			this.asteroids[i].move();
 		}
 		for (var i = 0; i < this.bullets.length; i++){
-			debugger
 			this.bullets[i].move();
 		}
 		this.ship.move();
@@ -114,7 +112,6 @@
 	};
 
 	Game.prototype.checkOffEdge = function () {
-		// debugger
 		for (var i = 0; i < this.asteroids.length; i++) {
 			if (this.asteroids[i].isOffEdge(this.DIM_X, this.DIM_Y)) {
 				delete(this.asteroids[i]);
@@ -129,7 +126,6 @@
 
 		var newBullet = this.ship.fireBullet();
 		this.bullets.push(newBullet);
-		debugger
 	};
 
 	// Game.prototype.start = function (ctx) {

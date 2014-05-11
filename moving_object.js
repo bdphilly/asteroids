@@ -27,7 +27,6 @@
 			false
 		);
 		ctx.fill();
-		// debugger
 	}
 
 	MovingObject.prototype.isCollidedWith = function(otherObject) {

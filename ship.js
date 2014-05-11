@@ -8,7 +8,6 @@
 		this.radius = radius;
 		this.color = color;
 		this.vel = [0,0];
-		//change this to user input
 	}
 
 	Function.prototype.inherits = function (superClass){
@@ -25,7 +24,7 @@
 
 	Ship.prototype.fireBullet = function() {
 		var ship = this;
-		if (!ship.vel === [0, 0]) {
+		if (!(ship.vel[0] === 0 && ship.vel[1] === 0)) {
 			var speed = Math.sqrt(ship.vel[0] * ship.vel[0] + ship.vel[1] * ship.vel[1]);
 			var vel = [5 * ship.vel[0] / speed, 5 * ship.vel[1] / speed];
 			return new Asteroids.Bullet(ship.pos, vel, 10, "green");

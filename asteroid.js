@@ -5,8 +5,8 @@
 
 	var Asteroid = Asteroids.Asteroid = function(radius, color) {
 		// MovingObject.call(this, radius, color);
-		this.color = color;
-		this.radius = radius;
+		// this.color = color;
+		// this.radius = radius;
 	}
 
 	Function.prototype.inherits = function (superClass){
