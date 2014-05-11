@@ -10,11 +10,11 @@
 		this.vel = [0,0];
 	}
 
-	Function.prototype.inherits = function (superClass){
-		function Surrogate(){};
-		Surrogate.prototype = superClass.prototype;
-		this.prototype = new Surrogate();
-	}
+	// Function.prototype.inherits = function (superClass){
+	// 	function Surrogate(){};
+	// 	Surrogate.prototype = superClass.prototype;
+	// 	this.prototype = new Surrogate();
+	// }
 
 	Ship.inherits(MovingObject);
 
@@ -22,12 +22,13 @@
 		this.vel = [this.vel[0] + impulse[0], this.vel[1] + impulse[1]];
 	};
 
-	Ship.prototype.fireBullet = function() {
+	Ship.prototype.fireBullet = function(game) {
 		var ship = this;
 		if (!(ship.vel[0] === 0 && ship.vel[1] === 0)) {
+			debugger
 			var speed = Math.sqrt(ship.vel[0] * ship.vel[0] + ship.vel[1] * ship.vel[1]);
 			var vel = [5 * ship.vel[0] / speed, 5 * ship.vel[1] / speed];
-			return new Asteroids.Bullet(ship.pos, vel, 10, "green");
+			return new Asteroids.Bullet(ship.pos, vel, 10, "green", game);
 		}
 	};
 

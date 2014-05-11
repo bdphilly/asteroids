@@ -8,6 +8,12 @@
 		this.color = color;
 	}
 
+	Function.prototype.inherits = function (superClass){
+		function Surrogate(){};
+		Surrogate.prototype = superClass.prototype;
+		this.prototype = new Surrogate();
+	}
+
 	MovingObject.prototype.move = function() {
 
 		this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
