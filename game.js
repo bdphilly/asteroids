@@ -39,19 +39,19 @@
 			var game = this;
 
 			key('w', function() {
-				game.ship.power([0, -.2]);
+				game.ship.power([0, -.3]);
 			});
 
 			key('s', function() {
-				game.ship.power([0, .2]);
+				game.ship.power([0, .3]);
 			});
 
 			key('d', function() {
-				game.ship.power([.2, 0]);
+				game.ship.power([.3, 0]);
 			});
 
 			key('a', function() {
-				game.ship.power([-.2, 0]);
+				game.ship.power([-.3, 0]);
 			});
 
 			key('space', function() {
