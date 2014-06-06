@@ -38,21 +38,21 @@
 
 			var game = this;
 
-			key('w', function() {
-				game.ship.power([0, -.3]);
-			});
+			// key('w', function() {
+			// 	game.ship.power([0, -.3]);
+			// });
 
-			key('s', function() {
-				game.ship.power([0, .3]);
-			});
+			// key('s', function() {
+			// 	game.ship.power([0, .3]);
+			// });
 
-			key('d', function() {
-				game.ship.power([.3, 0]);
-			});
+			// key('d', function() {
+			// 	game.ship.power([.3, 0]);
+			// });
 
-			key('a', function() {
-				game.ship.power([-.3, 0]);
-			});
+			// key('a', function() {
+			// 	game.ship.power([-.3, 0]);
+			// });
 
 			key('space', function() {
 				game.fireBullet();
@@ -94,6 +94,26 @@
 		this.draw(ctx);
 		this.checkOffEdge();
 		// this.bindKeyHandlers();
+
+			key('w', function() {
+				game.ship.power([0, -.001]);
+			});
+
+			key('s', function() {
+				game.ship.power([0, .001]);
+			});
+
+			key('d', function() {
+				game.ship.power([.001, 0]);
+			});
+
+			key('a', function() {
+				game.ship.power([-.001, 0]);
+			});
+
+			// key('space', function() {
+			// 	game.fireBullet();
+			// });
 	};
 
 	Game.prototype.checkCollisions = function () {
@@ -126,6 +146,7 @@
 	Game.prototype.fireBullet = function() {
 		var newBullet = this.ship.fireBullet(game);
 		if (newBullet) this.bullets.push(newBullet);
+		// debugger
 	};
 
 	Game.prototype.removeAsteroid = function (asteroid) {
