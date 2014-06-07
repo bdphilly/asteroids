@@ -18,6 +18,10 @@
 				var ctx = canvas.getContext("2d");
         var ast = new Asteroids.MovingObject([200,200], [100,200], 50, "black");
 				ast.draw(ctx);
+
+				DIM_Y = 1000;
+				DIM_X = 1000;
+
 				// ast.move();
 				// ast.draw(ctx);
 				var game = new Asteroids.Game(ctx);

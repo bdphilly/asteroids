@@ -43,10 +43,10 @@
 	}
 
 	MovingObject.prototype.isOffEdge = function (x, y) {
-
-	  return ((this.pos[0] + this.radius - x > 0) ||
+		
+	  return ((this.pos[0] + this.radius > DIM_X) ||
  			     (this.pos[0] + this.radius < 0)     ||
- 				   (this.pos[1] + this.radius - y > 0) ||
+ 				   ((this.pos[1] + this.radius) > DIM_Y) ||
 			     (this.pos[1] + this.radius < 0))
 	};
 

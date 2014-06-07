@@ -141,12 +141,18 @@
 				this.asteroids[i].randomAsteroid(this.DIM_X, this.DIM_Y);
 			}
 		}
+		this.bullets.forEach(function (bullet) {
+			if (bullet.isOffEdge(this.DIM_X, this.DIM_Y)) {
+				console.log('off the edge');
+			}
+		});
+
 	};
 
 	Game.prototype.fireBullet = function() {
 		var newBullet = this.ship.fireBullet(game);
 		if (newBullet) this.bullets.push(newBullet);
-		// debugger
+		debugger
 	};
 
 	Game.prototype.removeAsteroid = function (asteroid) {
