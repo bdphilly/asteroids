@@ -7,14 +7,13 @@
 		this.DIM_X = 1000;
 		this.DIM_Y = 1000;
 		this.asteroids = [];
-		this.FPS = 10;
+		this.FPS = 30;
 		this.ship = new Asteroids.Ship([500,500], 20, "blue");
 		this.bullets = [];
 	};
 
 	Game.prototype.start = function (ctx) {
 		var game = this;
-		game.bindKeyHandlers();
 		var timer = window.setInterval(function() {
 			game.step(ctx)
 			// game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
@@ -22,61 +21,24 @@
 	};
 
 
-	Game.prototype.bindKeyHandlers = function () {
+	
 
-		// if (key.shift) {this.ship.power([.1,.1])};
-			// var game = this;
-			// key('shift', function() {
-			// 	game.ship.power([10,10]);
-			// });
-			//
-			// var game = this;
-			// if (key.isPressed('shift'))  {
-			// 			{game.ship.power([10,10])};
-			// 			window.alert("shift was pressed!")
-			// 		}
-			$(document).keydown(function(event) {
-			  if (event.keyCode == '87') { // w
-		  		game.ship.power([0, -.3]);
-			  };
+	Game.prototype.bindKeyHandlers = function() {
 
-				if (event.keyCode == '83') { // s
-					game.ship.power([0, .3]);
-				};
-
-				if (event.keyCode == '68') { // d
-					game.ship.power([.3, 0]);
-				};
-
-				if (event.keyCode == '65') { // a
-					game.ship.power([-.3, 0]);
-				};
-
-			});
-
-
-			var game = this;
-
-			// key('w', function() {
-			// 	game.ship.power([0, -.3]);
-			// });
-
-			// key('s', function() {
-			// 	game.ship.power([0, .3]);
-			// });
-
-			// key('d', function() {
-			// 	game.ship.power([.3, 0]);
-			// });
-
-			// key('a', function() {
-			// 	game.ship.power([-.3, 0]);
-			// });
-
-			key('space', function() {
-				game.fireBullet();
-			});
-	};
+    var keys = key.getPressedKeyCodes();
+    if (keys.indexOf(68) > -1) {
+      this.ship.turn(5);
+    }
+    if (keys.indexOf(65) > -1) {
+      this.ship.turn(-5);
+    }
+    if (keys.indexOf(87) > -1) {
+      this.ship.power(2);
+    }
+    if ((keys.indexOf(32) > -1)){
+      this.fireBullet();
+    }
+  }
 
 	Game.prototype.addAsteroids = function(numAsteroids) {
 		for(var i = 0; i < numAsteroids; i++ ) {
@@ -112,27 +74,7 @@
 		this.move();
 		this.draw(ctx);
 		this.checkOffEdge();
-		// this.bindKeyHandlers();
-
-			// key('w', function() {
-			// 	game.ship.power([0, -.001]);
-			// });
-
-			// key('s', function() {
-			// 	game.ship.power([0, .001]);
-			// });
-
-			// key('d', function() {
-			// 	game.ship.power([.001, 0]);
-			// });
-
-			// key('a', function() {
-			// 	game.ship.power([-.001, 0]);
-			// });
-
-			// key('space', function() {
-			// 	game.fireBullet();
-			// });
+		this.bindKeyHandlers();
 	};
 
 	Game.prototype.checkCollisions = function () {
