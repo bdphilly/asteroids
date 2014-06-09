@@ -31,4 +31,8 @@
 		}
 	};
 
+	Ship.prototype.draw = function (ctx) {
+		ctx.drawImage(shipImage, this.pos[0], this.pos[1]);
+	}
+
 })(this);

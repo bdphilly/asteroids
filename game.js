@@ -35,6 +35,25 @@
 			// 			{game.ship.power([10,10])};
 			// 			window.alert("shift was pressed!")
 			// 		}
+			$(document).keydown(function(event) {
+			  if (event.keyCode == '87') { // w
+		  		game.ship.power([0, -.3]);
+			  };
+
+				if (event.keyCode == '83') { // s
+					game.ship.power([0, .3]);
+				};
+
+				if (event.keyCode == '68') { // d
+					game.ship.power([.3, 0]);
+				};
+
+				if (event.keyCode == '65') { // a
+					game.ship.power([-.3, 0]);
+				};
+
+			});
+
 
 			var game = this;
 
@@ -95,21 +114,21 @@
 		this.checkOffEdge();
 		// this.bindKeyHandlers();
 
-			key('w', function() {
-				game.ship.power([0, -.001]);
-			});
+			// key('w', function() {
+			// 	game.ship.power([0, -.001]);
+			// });
 
-			key('s', function() {
-				game.ship.power([0, .001]);
-			});
+			// key('s', function() {
+			// 	game.ship.power([0, .001]);
+			// });
 
-			key('d', function() {
-				game.ship.power([.001, 0]);
-			});
+			// key('d', function() {
+			// 	game.ship.power([.001, 0]);
+			// });
 
-			key('a', function() {
-				game.ship.power([-.001, 0]);
-			});
+			// key('a', function() {
+			// 	game.ship.power([-.001, 0]);
+			// });
 
 			// key('space', function() {
 			// 	game.fireBullet();
