@@ -41,7 +41,7 @@
 
 	Game.prototype.addAsteroids = function(numAsteroids) {
 		for(var i = 0; i < numAsteroids; i++ ) {
-			var asteroid = new Asteroids.Asteroid((50 * Math.random()), "black");
+			var asteroid = new Asteroids.Asteroid(40, "black");
 			asteroid.randomAsteroid(this.DIM_X, this.DIM_Y);
 			this.asteroids.push(asteroid);
 		}
@@ -93,20 +93,21 @@
 	};
 
 	Game.prototype.checkOffEdge = function () {
-		for (var i = 0; i < this.asteroids.length; i++) {
-			if (this.asteroids[i].isOffEdge(this.DIM_X, this.DIM_Y)) {
-				delete(this.asteroids[i]);
-				//at some point, might want to generate from edge or have wrap around
-				this.asteroids[i] = new Asteroids.Asteroid((100 * Math.random()), "black");
-				this.asteroids[i].randomAsteroid(this.DIM_X, this.DIM_Y);
+		//remove bullets from the game
+		for (var i = 0; i < this.bullets.length; i++) {
+			if (this.bullets[i].isOffEdge(this.DIM_X, this.DIM_Y)) {
+				this.bullets.splice(i, 1);
+				console.log(this.bullets.length);
 			}
-		}
-		this.bullets.forEach(function (bullet) {
-			if (bullet.isOffEdge(this.DIM_X, this.DIM_Y)) {
-				console.log('off the edge');
+		};
+
+		var that = this;
+		this.asteroids.forEach(function (asteroid) {
+			if (asteroid.isOffEdge(game.DIM_X, game.DIM_Y)) {
+				asteroid.wrapObject();
 			}
 		});
-
+		
 	};
 
 	Game.prototype.fireBullet = function() {
