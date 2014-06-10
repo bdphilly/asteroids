@@ -21,13 +21,23 @@
 	Bullet.inherits(MovingObject);
 
 	Bullet.prototype.hitAsteroids = function() {
-		for (var i = 0; i < this.game.asteroids.length; i++) {
-			if (this.isCollidedWith(this.game.asteroids[i])) {
-				this.game.removeAsteroid(this.game.asteroids[i]);
-				this.game.removeBullet(this);
-				break;
+		var bullet = this;
+		this.game.asteroids.forEach(function (asteroid) {
+			// if (that.isCollidedWith(asteroid)) {
+			// 	that.game.removeAsteroid(asteroid);
+			// 	that.game.removeBullet(that);
+			// }
+			if (bullet.isCollidedWith(asteroid)) {
+				game.removeBullet(bullet);
+				if (asteroid.radius == 65) {
+					game.splitAsteroids(40, asteroid)
+				} else if (asteroid.radius == 40) {
+					game.splitAsteroids(10, asteroid)
+				} else {
+					game.removeAsteroid(asteroid);
+				}
 			}
-		}
+		});
 	};
 
 	// Bullet.prototype.move = function() {

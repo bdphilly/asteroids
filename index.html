@@ -34,7 +34,7 @@
         // ast.move();
         // ast.draw(ctx);
         var game = new Asteroids.Game(ctx);
-        game.addAsteroids(10);
+        game.addAsteroids(5);
         // game.draw(ctx);
 
         // ctx.clearRect(0,0,1000,1000);
@@ -47,7 +47,9 @@
         }
 
         var shipImage = loadImage("ship.png");
-        var asteroidImage = loadImage("asteroid.png"); 
+        var asteroidOneThirty = loadImage("asteroid_130.png");         
+        var asteroidEighty = loadImage("asteroid_80.png"); 
+        var asteroidTwenty = loadImage("asteroid_20.png"); 
 
         game.start(ctx);
 

@@ -57,7 +57,6 @@
 
 		// return new Asteroids.Bullet(ship.pos, vel, 3, "green", game);
 		var vel = [20 * (velX), 20 * (velY)];   
-		
 
 		// var vel = [5 * (ship.vel[0] + velX) / speed, 5 * (ship.vel[1] + velY) / speed];   
 

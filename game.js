@@ -41,7 +41,7 @@
 
 	Game.prototype.addAsteroids = function(numAsteroids) {
 		for(var i = 0; i < numAsteroids; i++ ) {
-			var asteroid = new Asteroids.Asteroid(40, "black");
+			var asteroid = new Asteroids.Asteroid(65, "black");
 			asteroid.randomAsteroid(this.DIM_X, this.DIM_Y);
 			this.asteroids.push(asteroid);
 		}
@@ -97,7 +97,6 @@
 		for (var i = 0; i < this.bullets.length; i++) {
 			if (this.bullets[i].isOffEdge(this.DIM_X, this.DIM_Y)) {
 				this.bullets.splice(i, 1);
-				console.log(this.bullets.length);
 			}
 		};
 
@@ -110,9 +109,20 @@
 		
 	};
 
-	Game.prototype.fireBullet = function() {
+	Game.prototype.fireBullet = function () {
 		var newBullet = this.ship.fireBullet(game);
 		if (newBullet) this.bullets.push(newBullet);
+	};
+
+	Game.prototype.splitAsteroids = function (newRadius, asteroid) {
+		var that = this;
+		var position = asteroid.pos;
+		this.removeAsteroid(asteroid);
+		for (var i = 0; i < 3; i++ ) {
+			var asteroid = new Asteroids.Asteroid(newRadius, "red");
+			asteroid.splitSmaller(position)
+			that.asteroids.push(asteroid);
+		}
 	};
 
 	Game.prototype.removeAsteroid = function (asteroid) {

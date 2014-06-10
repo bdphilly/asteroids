@@ -24,6 +24,11 @@
 		this.vel = this.randomVelocity(1);
 	}
 
+	Asteroid.prototype.splitSmaller = function(position) {
+		this.pos = position;
+		this.vel = this.randomVelocity(1);
+	}
+
 	Asteroid.prototype.randomVelocity = function (num) {
 		return [(4 * num * Math.random() - num),
 					 (4 * num * Math.random() - num)];
@@ -35,7 +40,14 @@
     // ctx.fillStyle = this.color;
     ctx.translate(this.pos[0], this.pos[1]);
     ctx.rotate(this.direction * Math.PI / 180);
-		ctx.drawImage(asteroidImage, -(shipImage.width/2), -(asteroidImage.height/2));
+		if (this.radius == 65) {
+			ctx.drawImage(asteroidOneThirty, -(shipImage.width/2), -(asteroidOneThirty.height/2));
+		} else if (this.radius == 40) {
+			debugger
+			ctx.drawImage(asteroidEighty, -(shipImage.width/2), -(asteroidEighty.height/2));
+			} else {
+			ctx.drawImage(asteroidTwenty, -(shipImage.width/2), -(asteroidTwenty.height/2));
+		}
 		// ctx.arc(
 		// 	this.pos[0],
 		// 	this.pos[1],
