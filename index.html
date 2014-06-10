@@ -9,6 +9,7 @@
     <script src="ship.js"></script>
     <script src="game.js"></script>
     <script src="bullet.js"></script>
+    <script src="star.js"></script>
     <link rel="stylesheet" type="text/css" href="application.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="screen" />
 </head>
@@ -31,7 +32,7 @@
         
 
 
-        $('.start-button').click(function(){
+        // $('.start-button').click(function(){
             var canvas = document.createElement("canvas");
             $('body').append(canvas);
         
@@ -41,7 +42,7 @@
             canvas.setAttribute("height", game.DIM_Y);
             game.addAsteroids(5);
             game.start(ctx);
-        });
+        // });
 
         
         

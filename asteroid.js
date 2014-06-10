@@ -7,7 +7,7 @@
 		// MovingObject.call(this, radius, color);
 		this.color = color;
 		this.radius = radius;
-		this.angle = 0;
+		this.angle = Math.random() * 180;
 	}
 
 	// Function.prototype.inherits = function (superClass){

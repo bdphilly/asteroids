@@ -43,21 +43,21 @@
 
 	MovingObject.prototype.isOffEdge = function () {
 		
-	  return ((this.pos[0] + this.radius > this.DIM_X) ||
+	  return ((this.pos[0] + this.radius > game.DIM_X) ||
  			     (this.pos[0] + this.radius < 0)     ||
- 				   ((this.pos[1] + this.radius) > this.DIM_Y) ||
+ 				   ((this.pos[1] + this.radius) > game.DIM_Y) ||
 			     (this.pos[1] + this.radius < 0))
 	};
 
 	MovingObject.prototype.wrapObject = function () {
-		if (this.pos[0] - this.radius > this.DIM_X) {
+		if (this.pos[0] - this.radius > game.DIM_X) {
 			this.pos[0] = -this.radius;
 		} else if (this.pos[0] - this.radius < 0) {
-			this.pos[0] = this.DIM_X + this.radius;
-		} else if (this.pos[1] - this.radius > this.DIM_Y) {
+			this.pos[0] = game.DIM_X + this.radius;
+		} else if (this.pos[1] - this.radius > game.DIM_Y) {
 			this.pos[1] = -this.radius;
 		} else if (this.pos[1] - this.radius < 0) {
-			this.pos[1] = this.DIM_Y + this.radius;
+			this.pos[1] = game.DIM_Y + this.radius;
 		}
 	};
 

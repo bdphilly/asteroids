@@ -3,14 +3,14 @@
 
   var MovingObject = Asteroids.MovingObject;
 
-  var Ship = Asteroids.Ship = function(pos, radius, color) {
+  var Ship = Asteroids.Ship = function (pos, radius, color) {
     this.pos = pos;
     this.radius = radius;
     this.color = color;
     this.vel = [0,0];
     this.direction = 0;
     this.shipCharged = true;
-  }
+  };
 
   // Function.prototype.inherits = function (superClass){
   //  function Surrogate(){};
