@@ -8,10 +8,11 @@
     this.DIM_Y = $(window).height();
 		this.asteroids = [];
 		this.FPS = 30;
-		this.ship = new Asteroids.Ship([this.DIM_X/2, this.DIM_Y/2], 13, "blue");
+		this.ship = new Asteroids.Ship([this.DIM_X / 2, this.DIM_Y / 2], 13);
 		this.bullets = [];
 		this.stars = [];
 		this.generateStars(300);
+		this.addAsteroids(5);
 	};
 
 	Game.prototype.start = function (ctx) {
@@ -115,29 +116,29 @@
 	};
 
 	Game.prototype.checkOffEdge = function () {
+		var game = this;
 		for (var i = 0; i < this.stars.length; i++) {
-			if (this.stars[i].isOffEdge(this.DIM_X, this.DIM_Y)) {
+			if (this.stars[i].isOffEdge(game)) {
 				this.stars.splice(i, 1);
 				this.generateStars(1);
 			}
 		};
-		
 
 		for (var i = 0; i < this.bullets.length; i++) {
-			if (this.bullets[i].isOffEdge(this.DIM_X, this.DIM_Y)) {
+			if (this.bullets[i].isOffEdge(game)) {
 				this.bullets.splice(i, 1);
 			}
 		};
 
 		this.asteroids.forEach(function (asteroid) {
-			if (asteroid.isOffEdge(this.DIM_X, this.DIM_Y)) {
-				asteroid.wrapObject();
+			if (asteroid.isOffEdge(game)) {
+				asteroid.wrapObject(game);
 			}
 		});
 
-		if (this.ship.isOffEdge(this.DIM_X, this.DIM_Y)) {
-			this.ship.wrapObject();
-		}
+		if (this.ship.isOffEdge(game)) {
+			this.ship.wrapObject(game);
+		};
 				
 	};
 
@@ -145,9 +146,8 @@
 		// var newBullet = this.ship.fireBullet(game);
 		// if (newBullet) this.bullets.push(newBullet);
 
-
 		if (this.ship.shipCharged) {
-			var newBullet = this.ship.fireBullet(game);
+			var newBullet = this.ship.fireBullet(this);
 			this.bullets.push(newBullet);
 		}
 

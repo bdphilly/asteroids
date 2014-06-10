@@ -29,10 +29,11 @@
 
     <script>
         // var canvas = document.getElementsByTagName("canvas")[0];
-        
+        $('.home-screen').show();
 
 
-        // $('.start-button').click(function(){
+        $('.start-button').click(function(){
+            $('.home-screen').hide();
             var canvas = document.createElement("canvas");
             $('body').append(canvas);
         
@@ -40,12 +41,9 @@
             var game = new Asteroids.Game(ctx);
             canvas.setAttribute("width", game.DIM_X);
             canvas.setAttribute("height", game.DIM_Y);
-            game.addAsteroids(5);
             game.start(ctx);
-        // });
+        });
 
-        
-        
         function loadImage(name) {
           var image = new Image();
           image.src = name;
@@ -56,8 +54,6 @@
         var asteroidOneThirty = loadImage("asteroid_130.png");         
         var asteroidEighty = loadImage("asteroid_80.png"); 
         var asteroidTwenty = loadImage("asteroid_20.png"); 
-
-        
 
     </script>
 </body>

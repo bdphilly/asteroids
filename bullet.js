@@ -22,7 +22,8 @@
 
 	Bullet.prototype.hitAsteroids = function() {
 		var bullet = this;
-		this.game.asteroids.forEach(function (asteroid) {
+		var game = this.game;
+		game.asteroids.forEach(function (asteroid) {
 			// if (that.isCollidedWith(asteroid)) {
 			// 	that.game.removeAsteroid(asteroid);
 			// 	that.game.removeBullet(that);
