@@ -30,6 +30,7 @@
 			if (bullet.isCollidedWith(asteroid)) {
 				game.removeBullet(bullet);
 				if (asteroid.radius == 65) {
+					game.addAsteroids(1);
 					game.splitAsteroids(40, asteroid)
 				} else if (asteroid.radius == 40) {
 					game.splitAsteroids(10, asteroid)

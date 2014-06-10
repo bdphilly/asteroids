@@ -41,10 +41,8 @@
     ctx.translate(this.pos[0], this.pos[1]);
     ctx.rotate(this.direction * Math.PI / 180);
 		if (this.radius == 65) {
-
 			ctx.drawImage(asteroidOneThirty, -(asteroidOneThirty.width/2), -(asteroidOneThirty.height/2));
 		} else if (this.radius == 40) {
-
 			ctx.drawImage(asteroidEighty, -(asteroidEighty.width/2), -(asteroidEighty.height/2));
 			} else {
 			ctx.drawImage(asteroidTwenty, -(asteroidTwenty.width/2), -(asteroidTwenty.height/2));

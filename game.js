@@ -6,11 +6,9 @@
 		this.ctx = ctx;
 		this.DIM_X = $(window).width();
     this.DIM_Y = $(window).height();
-		// this.DIM_X = 1000;
-		// this.DIM_Y = 1000;
 		this.asteroids = [];
 		this.FPS = 30;
-		this.ship = new Asteroids.Ship([500,500], 20, "blue");
+		this.ship = new Asteroids.Ship([this.DIM_X/2, this.DIM_Y/2], 20, "blue");
 		this.bullets = [];
 	};
 
@@ -18,7 +16,7 @@
 		var game = this;
 		var timer = window.setInterval(function() {
 			game.step(ctx)
-			// game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
+			game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
 		}, game.FPS);
 	};
 
