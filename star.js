@@ -9,7 +9,7 @@
 	var Star = Asteroids.Star = function (pos, vel) {
 		Asteroids.MovingObject.call(this, pos, vel)
 		// this.pos = pos;
-		this.vel = [5,5];
+		this.vel = [Math.random() * .2 , Math.random() * .2];
 		this.radius = 1;
 		this.color = "white";
 		// this.game = game;
