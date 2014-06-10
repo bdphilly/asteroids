@@ -34,6 +34,9 @@
     if (keys.indexOf(87) > -1) {
       this.ship.power(2);
     }
+    if (keys.indexOf(83) > -1) {
+      this.ship.power(-1);
+    }
     if ((keys.indexOf(32) > -1)){
       this.fireBullet();
     }
@@ -93,25 +96,34 @@
 	};
 
 	Game.prototype.checkOffEdge = function () {
-		//remove bullets from the game
 		for (var i = 0; i < this.bullets.length; i++) {
 			if (this.bullets[i].isOffEdge(this.DIM_X, this.DIM_Y)) {
 				this.bullets.splice(i, 1);
 			}
 		};
 
-		var that = this;
 		this.asteroids.forEach(function (asteroid) {
 			if (asteroid.isOffEdge(game.DIM_X, game.DIM_Y)) {
 				asteroid.wrapObject();
 			}
 		});
-		
+
+		if (this.ship.isOffEdge(game.DIM_X, game.DIM_Y)) {
+			this.ship.wrapObject();
+		}
+				
 	};
 
 	Game.prototype.fireBullet = function () {
-		var newBullet = this.ship.fireBullet(game);
-		if (newBullet) this.bullets.push(newBullet);
+		// var newBullet = this.ship.fireBullet(game);
+		// if (newBullet) this.bullets.push(newBullet);
+
+
+		if (this.ship.shipCharged) {
+			var newBullet = this.ship.fireBullet(game);
+			this.bullets.push(newBullet);
+		}
+
 	};
 
 	Game.prototype.splitAsteroids = function (newRadius, asteroid) {

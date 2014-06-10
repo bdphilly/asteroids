@@ -41,12 +41,13 @@
     ctx.translate(this.pos[0], this.pos[1]);
     ctx.rotate(this.direction * Math.PI / 180);
 		if (this.radius == 65) {
-			ctx.drawImage(asteroidOneThirty, -(shipImage.width/2), -(asteroidOneThirty.height/2));
+
+			ctx.drawImage(asteroidOneThirty, -(asteroidOneThirty.width/2), -(asteroidOneThirty.height/2));
 		} else if (this.radius == 40) {
-			debugger
-			ctx.drawImage(asteroidEighty, -(shipImage.width/2), -(asteroidEighty.height/2));
+
+			ctx.drawImage(asteroidEighty, -(asteroidEighty.width/2), -(asteroidEighty.height/2));
 			} else {
-			ctx.drawImage(asteroidTwenty, -(shipImage.width/2), -(asteroidTwenty.height/2));
+			ctx.drawImage(asteroidTwenty, -(asteroidTwenty.width/2), -(asteroidTwenty.height/2));
 		}
 		// ctx.arc(
 		// 	this.pos[0],
