@@ -101,12 +101,12 @@
 		};
 
 		this.asteroids.forEach(function (asteroid) {
-			if (asteroid.isOffEdge(game.DIM_X, game.DIM_Y)) {
+			if (asteroid.isOffEdge(this.DIM_X, this.DIM_Y)) {
 				asteroid.wrapObject();
 			}
 		});
 
-		if (this.ship.isOffEdge(game.DIM_X, game.DIM_Y)) {
+		if (this.ship.isOffEdge(this.DIM_X, this.DIM_Y)) {
 			this.ship.wrapObject();
 		}
 				
