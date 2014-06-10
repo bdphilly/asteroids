@@ -4,8 +4,10 @@
 	var Game = Asteroids.Game = function Game(ctx)
 	{
 		this.ctx = ctx;
-		this.DIM_X = 1000;
-		this.DIM_Y = 1000;
+		this.DIM_X = $(window).width();
+    this.DIM_Y = $(window).height();
+		// this.DIM_X = 1000;
+		// this.DIM_Y = 1000;
 		this.asteroids = [];
 		this.FPS = 30;
 		this.ship = new Asteroids.Ship([500,500], 20, "blue");
@@ -19,9 +21,6 @@
 			// game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
 		}, game.FPS);
 	};
-
-
-	
 
 	Game.prototype.bindKeyHandlers = function() {
 
@@ -70,7 +69,7 @@
 	};
 
 	Game.prototype.step = function (ctx) {
-		ctx.clearRect(0,0,this.DIM_X, this.DIM_Y);
+		ctx.clearRect(0 , 0, this.DIM_X, this.DIM_Y);
 		this.move();
 		this.draw(ctx);
 		this.checkOffEdge();
@@ -113,7 +112,6 @@
 	Game.prototype.fireBullet = function() {
 		var newBullet = this.ship.fireBullet(game);
 		if (newBullet) this.bullets.push(newBullet);
-		debugger
 	};
 
 	Game.prototype.removeAsteroid = function (asteroid) {
