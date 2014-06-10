@@ -8,7 +8,7 @@
     this.DIM_Y = $(window).height();
 		this.asteroids = [];
 		this.FPS = 30;
-		this.ship = new Asteroids.Ship([this.DIM_X/2, this.DIM_Y/2], 20, "blue");
+		this.ship = new Asteroids.Ship([this.DIM_X/2, this.DIM_Y/2], 13, "blue");
 		this.bullets = [];
 	};
 

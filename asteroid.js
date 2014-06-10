@@ -7,6 +7,7 @@
 		// MovingObject.call(this, radius, color);
 		this.color = color;
 		this.radius = radius;
+		this.angle = 0;
 	}
 
 	// Function.prototype.inherits = function (superClass){
@@ -35,11 +36,10 @@
 	};
 
 	Asteroid.prototype.draw = function (ctx) {
+    this.angle += .5;
     ctx.save();
-    ctx.beginPath();
-    // ctx.fillStyle = this.color;
     ctx.translate(this.pos[0], this.pos[1]);
-    ctx.rotate(this.direction * Math.PI / 180);
+    ctx.rotate(this.angle * Math.PI / 180)
 		if (this.radius == 65) {
 			ctx.drawImage(asteroidOneThirty, -(asteroidOneThirty.width/2), -(asteroidOneThirty.height/2));
 		} else if (this.radius == 40) {
@@ -47,15 +47,6 @@
 			} else {
 			ctx.drawImage(asteroidTwenty, -(asteroidTwenty.width/2), -(asteroidTwenty.height/2));
 		}
-		// ctx.arc(
-		// 	this.pos[0],
-		// 	this.pos[1],
-		// 	this.radius,
-  //     ((this.direction / 10) + 0.15) * Math.PI,
-  //     ((this.direction / 10) - 0.15) * Math.PI,
-		// 	false
-		// );
-		// ctx.fill();
 		ctx.restore();
 	}
 })(this);
