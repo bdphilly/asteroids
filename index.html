@@ -15,80 +15,80 @@
 
 </head>
 <body style="background-color: black">
-    <canvas></canvas>
+  <canvas></canvas>
 
-    <section class="flip-container" align="center">
-      <div id="card">
-        <figure class="front">
-          <div class="jumbotron home-screen">
-            <h1 class="header">Asteroids</h1>
-              <small class="subheader">
-                Asteroids are heading for Earth!
-                <br>
-                You are the last hope to save mankind.
-                <br>
-                Do you have what it takes?
-              </small>
+  <section class="flip-container" align="center">
+  <div id="card">
+    <figure class="front">
+      <div class="jumbotron home-screen">
+        <h1 class="header">Asteroids</h1>
+          <small class="subheader">
+            Asteroids are heading for Earth!
             <br>
-            <button type="button" class="btn start-button">Begin!</button>
-            <button type="button" class="btn flip-button">
-              <img src="wrench.png" alt="">
-              Controls
-            </button>
-          </div>
-        </figure>
-        <figure class="back">
-          <div class="jumbotron home-screen-back">
-            <h1 class="header">Asteroids</h1>
-              <small class="subheader">
-                THE BACK!
-              </small>
+            You are the last hope to save mankind.
             <br>
-            
-            <button type="button" class="btn flip-button-two">
-              <img src="wrench.png" alt="">
-              Controls
-            </button>
-          </div>
-        </figure>
+            Do you have what it takes?
+          </small>
+        <br>
+        <button type="button" class="btn start-button">Begin!</button>
+        <button type="button" class="btn flip-button">
+          <img src="wrench.png" alt="">
+          Controls
+        </button>
       </div>
-    </section>
-
-    <script>
-        // var canvas = document.getElementsByTagName("canvas")[0];
-
-        // $('.flip-container').show();
-
-        $('.flip-button').click(function () {
-          $('#card').toggleClass('flipped');
-        })
-        $('.flip-button-two').click(function () {
-          $('#card').toggleClass('flipped');
-        })
-
-        $('.start-button').click(function(){
-            $('.flip-container').hide();
-            var canvas = document.createElement("canvas");
-            $('body').append(canvas);
+    </figure>
+    <figure class="back">
+      <div class="jumbotron home-screen screen-back">
+        <h1 class="header">Asteroids</h1>
+          <small class="subheader">
+            THE BACK!
+          </small>
+        <br>
         
-            var ctx = canvas.getContext("2d");
-            var game = new Asteroids.Game(ctx);
-            canvas.setAttribute("width", game.DIM_X);
-            canvas.setAttribute("height", game.DIM_Y);
-            game.start(ctx);
-        });
-
-        function loadImage(name) {
-          var image = new Image();
-          image.src = name;
-          return image;
-        }
-
-        var shipImage = loadImage("ship.png");
-        var asteroidOneThirty = loadImage("asteroid_130.png");         
-        var asteroidEighty = loadImage("asteroid_80.png"); 
-        var asteroidTwenty = loadImage("asteroid_20.png"); 
-
-    </script>
+        <button type="button" class="btn flip-button-two">
+          <img src="wrench.png" alt="">
+          Controls
+        </button>
+      </div>
+    </figure>
+  </div>
+  </section>
+Designed by Bryan Phillips    
 </body>
 </html>
+<script>
+  // var canvas = document.getElementsByTagName("canvas")[0];
+
+  // $('.flip-container').show();
+
+  $('.flip-button').click(function () {
+    $('#card').toggleClass('flipped');
+  })
+  $('.flip-button-two').click(function () {
+    $('#card').toggleClass('flipped');
+  })
+
+  $('.start-button').click(function(){
+      $('.flip-container').hide();
+      var canvas = document.createElement("canvas");
+      $('body').append(canvas);
+
+      var ctx = canvas.getContext("2d");
+      var game = new Asteroids.Game(ctx);
+      canvas.setAttribute("width", game.DIM_X);
+      canvas.setAttribute("height", game.DIM_Y);
+      game.start(ctx);
+  });
+
+  function loadImage(name) {
+    var image = new Image();
+    image.src = name;
+    return image;
+  }
+
+  var shipImage = loadImage("ship.png");
+  var asteroidOneThirty = loadImage("asteroid_130.png");         
+  var asteroidEighty = loadImage("asteroid_80.png"); 
+  var asteroidTwenty = loadImage("asteroid_20.png"); 
+
+</script>

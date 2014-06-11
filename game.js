@@ -35,16 +35,16 @@
 	Game.prototype.bindKeyHandlers = function() {
 
     var keys = key.getPressedKeyCodes();
-    if (keys.indexOf(68) > -1) {
+    if ((keys.indexOf(68) > -1) || (keys.indexOf(39) > -1)) {
       this.ship.turn(5);
     }
-    if (keys.indexOf(65) > -1) {
+    if ((keys.indexOf(65) > -1) || (keys.indexOf(37) > -1)) {
       this.ship.turn(-5);
     }
-    if (keys.indexOf(87) > -1) {
+    if ((keys.indexOf(87) > -1) || (keys.indexOf(38)) > -1){
       this.ship.power(2);
     }
-    if (keys.indexOf(83) > -1) {
+    if ((keys.indexOf(83) > -1) || (keys.indexOf(40) > -1)) {
       this.ship.power(-1);
     }
     if ((keys.indexOf(32) > -1)){
