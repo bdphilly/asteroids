@@ -31,7 +31,7 @@
           </small>
         <br>
         <button type="button" class="btn start-button">Begin!</button>
-        <button type="button" class="btn flip-button">
+        <button type="button" class="btn flip-button first">
           <img src="wrench.png" alt="">
           Controls
         </button>
@@ -39,21 +39,25 @@
     </figure>
     <figure class="back">
       <div class="jumbotron home-screen screen-back">
-        <h1 class="header">Asteroids</h1>
+        <h1 class="header">Controls</h1>
           <small class="subheader">
-            THE BACK!
+            Left: Left Arrow or 'A'<br>
+            Right: Right Arrow or 'D'<br>
+            Thrust: Up Arrow or 'W'<br>
+            Reverse: Down Arrow or 'S'<br>
+            Shoot: Spacebar
           </small>
         <br>
         
-        <button type="button" class="btn flip-button-two">
-          <img src="wrench.png" alt="">
-          Controls
+        <button type="button" class="btn flip-button second">
+          Back &nbsp;
+          <img src="hand.png" alt="">
         </button>
       </div>
     </figure>
   </div>
   </section>
-Designed by Bryan Phillips    
+Designed by Bryan Phillips | 2014    
 </body>
 </html>
 <script>
@@ -64,9 +68,9 @@ Designed by Bryan Phillips
   $('.flip-button').click(function () {
     $('#card').toggleClass('flipped');
   })
-  $('.flip-button-two').click(function () {
-    $('#card').toggleClass('flipped');
-  })
+  // $('.flip-button-two').click(function () {
+  //   $('#card').toggleClass('flipped');
+  // })
 
   $('.start-button').click(function(){
       $('.flip-container').hide();
