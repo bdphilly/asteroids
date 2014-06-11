@@ -12,14 +12,9 @@
     <script src="star.js"></script>
     <link rel="stylesheet" type="text/css" href="application.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="screen" />
-
 </head>
 <body style="background-color: black">
   <canvas></canvas>
-<!--   <div class="score">
-    THE SCORE GOES HERE!
-  </div>
- -->
 
   <section class="flip-container" align="center">
     <div id="card">
@@ -34,7 +29,9 @@
               Do you have what it takes?
             </small>
           <br>
-          <button type="button" class="btn start-button">Begin!</button>
+          <button type="button" class="btn start-button" id="difficulty1">Easy</button>
+          <button type="button" class="btn start-button" id="difficulty2">Hard</button>
+          <button type="button" class="btn start-button" id="difficulty3">Insane</button>
           <button type="button" class="btn flip-button first">
             <img src="wrench.png" alt="">
             Controls
@@ -77,9 +74,9 @@
       $('.flip-container').hide();
       var canvas = document.createElement("canvas");
       $('body').append(canvas);
-
+      var id = parseInt(this.id.slice(-1));
       var ctx = canvas.getContext("2d");
-      var game = new Asteroids.Game(ctx);
+      var game = new Asteroids.Game(ctx, id);
       canvas.setAttribute("width", game.DIM_X);
       canvas.setAttribute("height", game.DIM_Y);
       game.start(ctx);

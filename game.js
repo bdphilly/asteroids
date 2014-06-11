@@ -1,7 +1,7 @@
 (function(root) {
 	var Asteroids = root.Asteroids = (root.Asteroids || {});
 
-	var Game = Asteroids.Game = function Game(ctx)
+	var Game = Asteroids.Game = function Game(ctx, difficulty)
 	{
 		this.ctx = ctx;
 		this.DIM_X = $(window).width();
@@ -14,6 +14,7 @@
 		this.generateStars(300);
 		this.addAsteroids(5);
 		this.score = 0;
+		this.difficulty = difficulty;
 	};
 
 	Game.prototype.start = function (ctx) {
@@ -85,8 +86,9 @@
     this.ctx.font = "bold 28px subatomic";
     // this.ctx.xCoord = 50;
 		this.ctx.fillText("SCORE:", 50, 50);
+		this.ctx.font = "bold 28px subatomic";
 		this.ctx.fillStyle = "blue";
-		this.ctx.fillText(this.score, 200, 50);
+		this.ctx.fillText(this.score, 180, 50);
 	};
 
 	Game.prototype.move = function () {
@@ -170,7 +172,8 @@
 		var that = this;
 		var position = asteroid.pos;
 		this.removeAsteroid(asteroid);
-		for (var i = 0; i < 3; i++ ) {
+
+		for (var i = 0; i < this.difficulty; i++ ) {
 			var asteroid = new Asteroids.Asteroid(newRadius, "red");
 			asteroid.splitSmaller(position)
 			that.asteroids.push(asteroid);

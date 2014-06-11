@@ -12,22 +12,13 @@
 		this.game = game;
 	}
 
-	// Function.prototype.inherits = function(superClass) {
-	// 	function Surrogate() {};
-	// 	Surrogate.prototype = superClass.prototype;
-	// 	this.prototype = new Surrogate();
-	// };
-
 	Bullet.inherits(MovingObject);
 
 	Bullet.prototype.hitAsteroids = function() {
 		var bullet = this;
 		var game = this.game;
 		game.asteroids.forEach(function (asteroid) {
-			// if (that.isCollidedWith(asteroid)) {
-			// 	that.game.removeAsteroid(asteroid);
-			// 	that.game.removeBullet(that);
-			// }
+
 			if (bullet.isCollidedWith(asteroid)) {
 				game.removeBullet(bullet);
 				if (asteroid.radius == 65) {

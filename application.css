@@ -62,20 +62,26 @@ canvas {
 	font-size: 36px;
 	font-family: 'Ratio';
 	border-radius: 20px;
-	margin-left: 165px; ;
+	border: black thin solid;
+	letter-spacing: 3px;
+}
+
+#difficulty3 {
+	background-color: black;
+}
+
+#difficulty2 {
+	background-color: #0C10F2;
+}
+
+#difficulty1 {
+	background-color: #00FF22;
 }
 
 .btn.start-button:hover {
 	background-color: lightgrey;
 	border: #D712FF thin solid;
 	color: #D712FF;
-}
-
-.score {
-	color: white;
-	display: inline-block;
-	position: absolute;
-	z-index: 1000;
 }
 
 .subheader {
