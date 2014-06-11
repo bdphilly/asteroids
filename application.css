@@ -157,8 +157,29 @@ canvas {
 
 .end-screen {
 	z-index: 1000;
+	display: inline-block;
+	position: absolute;
+  bottom:20px;
+	right:25px; 
 }
 
+.the-home-button {
+	z-index: 1;
+}
+
+
+.home-button {
+	z-index: 1;
+	background: #0044FF;
+	display: inline-block;
+	position: absolute;
+  bottom:50px;
+	right:50px; 
+}
+
+.home-button:hover {
+	background: #FF00FF;
+}
 
 /*TODO: 
 1.EXIT SCREEN / PAUSE?

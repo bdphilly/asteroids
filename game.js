@@ -118,8 +118,6 @@
 		for (var i = 0; i < this.asteroids.length; i++) {
 			if (this.asteroids[i].isCollidedWith(this.ship)) {
 				// window.alert("Game Over Loser!");
-				$('.end-screen').show();
-
 				return true;
 			}
 		}
@@ -130,6 +128,14 @@
 		if (this.checkCollisions()) {
 			window.clearInterval(timer);
 			this.endGame();
+			$('.the-home-button').show();
+			$('.the-home-button').click(function() {
+  	  	$('canvas').remove();
+    		$('.flip-container').show();
+    		$('.the-home-button').hide();
+  		});
+
+
 			// $('canvas').hide();
 			// $('.end-screen').show();
 		}
