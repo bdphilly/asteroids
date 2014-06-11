@@ -3,19 +3,25 @@
 
 	var MovingObject = Asteroids.MovingObject;
 
-	var Asteroid = Asteroids.Asteroid = function(radius, color) {
+	var Asteroid = Asteroids.Asteroid = function(radius) {
 		// MovingObject.call(this, radius, color);
-		this.color = color;
 		this.radius = radius;
 		this.angle = Math.random() * 180;
 	}
 
 	Asteroid.inherits(MovingObject);
 
-	Asteroid.prototype.randomAsteroid = function(dimX, dimY) {
-		//vel optional addition
-		//we might need to floor this if we want integers...
-		this.pos = [dimX * Math.random(), dimY * Math.random()];
+	Asteroid.prototype.randomAsteroid = function(dimX, dimY, shipPosition) { 
+		var conflictingPosition = true;
+		while (conflictingPosition) {
+			this.pos = [dimX * Math.random(), dimY * Math.random()];
+			if (Math.abs(this.pos[0] - shipPosition[0]) < 50 || Math.abs(this.pos[1] - shipPosition[1]) < 50) {
+				this.pos = [dimX * Math.random(), dimY * Math.random()];
+			} else {
+				conflictingPosition = false;
+			}
+		}
+		// this.pos = [dimX * Math.random(), dimY * Math.random()];
 		this.vel = this.randomVelocity(1);
 	}
 

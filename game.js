@@ -30,7 +30,6 @@
 			var position = ([Math.random() * this.DIM_X, Math.random() * this.DIM_Y])
 			var star = new Asteroids.Star(position);
 			this.stars.push(star);
-			// debugger
 		}
 	};
 
@@ -56,8 +55,8 @@
 
 	Game.prototype.addAsteroids = function(numAsteroids) {
 		for(var i = 0; i < numAsteroids; i++ ) {
-			var asteroid = new Asteroids.Asteroid(65, "black");
-			asteroid.randomAsteroid(this.DIM_X, this.DIM_Y);
+			var asteroid = new Asteroids.Asteroid(65);
+			asteroid.randomAsteroid(this.DIM_X, this.DIM_Y, this.ship.pos);
 			this.asteroids.push(asteroid);
 		}
 	};
