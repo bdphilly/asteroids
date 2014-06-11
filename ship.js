@@ -12,12 +12,6 @@
     this.shipCharged = true;
   };
 
-  // Function.prototype.inherits = function (superClass){
-  //  function Surrogate(){};
-  //  Surrogate.prototype = superClass.prototype;
-  //  this.prototype = new Surrogate();
-  // }
-
   Ship.inherits(MovingObject);
 
   Ship.prototype.power = function (impulse) {
@@ -44,36 +38,35 @@
       ship.shipCharged = true
     }, 300) 
       
-      var bulletPos = [];
-      bulletPos[0] = ship.pos[0] + 10 * -Math.cos(this.direction)
-      bulletPos[1] = ship.pos[1] + 10 * Math.sin(this.direction)
+    var bulletPos = [];
+    bulletPos[0] = ship.pos[0] //+ 10 * -Math.cos(this.direction)
+    bulletPos[1] = ship.pos[1] //+ 10 * Math.sin(this.direction)
 
+    var velX = .8 * Math.sin(this.direction * Math.PI / 180);
+    var velY = .8 * -Math.cos(this.direction * Math.PI / 180);
 
-      var velX = .2 * Math.sin(this.direction * Math.PI / 180);
-      var velY = .2 * -Math.cos(this.direction * Math.PI / 180);
-
-      if ((ship.vel[0] === 0 && ship.vel[1] === 0)) {
-        var vel = [20 * (ship.vel[0] + velX), 20 * (ship.vel[1] + velY)];   
-        return new Asteroids.Bullet(ship.pos, vel, 2, "blue", game);
-      }
-
-      // var speed = Math.sqrt(ship.vel[0] * ship.vel[0] + ship.vel[1] * ship.vel[1]);
-
-      // var vel = [5 * (ship.vel[0] + velX) / speed, 5 * (ship.vel[1] + velY) / speed];   
-
-      // return new Asteroids.Bullet(ship.pos, vel, 3, "green", game);
-      var vel = [20 * (velX), 20 * (velY)];   
-
-      // var vel = [5 * (ship.vel[0] + velX) / speed, 5 * (ship.vel[1] + velY) / speed];   
-
-      // if (!(ship.vel[0] === 0 && ship.vel[1] === 0)) {
-      //  var speed = Math.sqrt(ship.vel[0] * ship.vel[0] + ship.vel[1] * ship.vel[1]);
-      //  var vel = [5 * ship.vel[0] / speed, 5 * ship.vel[1] / speed];
-      //  return new Asteroids.Bullet(ship.pos, vel, 10, "green", game);
-      // }
-
-      
+    if ((ship.vel[0] === 0 && ship.vel[1] === 0)) {
+      var vel = [20 * (ship.vel[0] + velX), 20 * (ship.vel[1] + velY)];   
       return new Asteroids.Bullet(ship.pos, vel, 2, "blue", game);
+    }
+
+    // var speed = Math.sqrt(ship.vel[0] * ship.vel[0] + ship.vel[1] * ship.vel[1]);
+
+    // var vel = [5 * (ship.vel[0] + velX) / speed, 5 * (ship.vel[1] + velY) / speed];   
+
+    // return new Asteroids.Bullet(ship.pos, vel, 3, "green", game);
+    var vel = [20 * (velX), 20 * (velY)];   
+
+    // var vel = [5 * (ship.vel[0] + velX) / speed, 5 * (ship.vel[1] + velY) / speed];   
+
+    // if (!(ship.vel[0] === 0 && ship.vel[1] === 0)) {
+    //  var speed = Math.sqrt(ship.vel[0] * ship.vel[0] + ship.vel[1] * ship.vel[1]);
+    //  var vel = [5 * ship.vel[0] / speed, 5 * ship.vel[1] / speed];
+    //  return new Asteroids.Bullet(ship.pos, vel, 10, "green", game);
+    // }
+
+    
+    return new Asteroids.Bullet(ship.pos, vel, 2, "blue", game);
   };
 
   Ship.prototype.draw = function (ctx) {

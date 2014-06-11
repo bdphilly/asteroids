@@ -32,11 +32,14 @@
 				game.removeBullet(bullet);
 				if (asteroid.radius == 65) {
 					game.addAsteroids(1);
-					game.splitAsteroids(40, asteroid)
+					game.splitAsteroids(40, asteroid);
+					game.score += 3;
 				} else if (asteroid.radius == 40) {
 					game.splitAsteroids(10, asteroid)
+					game.score += 6;
 				} else {
 					game.removeAsteroid(asteroid);
+					game.score += 10;
 				}
 			}
 		});

@@ -1,9 +1,4 @@
 @font-face {
-  font-family: 'EarthKid';
-  src: url('EarthKid.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
-}
-
-@font-face {
   font-family: 'neuropolx';
   src: url('neuropolx.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
@@ -34,6 +29,11 @@ canvas {
   right: 0px;
 }
 
+#contact {
+	margin-top: 150px;
+	text-align: center;
+}
+
 .jumbotron.home-screen {
 	height: 500px;
 	width: 800px;
@@ -55,7 +55,7 @@ canvas {
 
 .btn.start-button {
 	margin-top: 30px;
-	background-color: red;
+	background-color: #D712FF;
 	color: white;
 	width: 150px;
 	height: 70px;
@@ -67,8 +67,15 @@ canvas {
 
 .btn.start-button:hover {
 	background-color: lightgrey;
-	border: red thin solid;
-	color: red;
+	border: #D712FF thin solid;
+	color: #D712FF;
+}
+
+.score {
+	color: white;
+	display: inline-block;
+	position: absolute;
+	z-index: 1000;
 }
 
 .subheader {
@@ -76,8 +83,8 @@ canvas {
 }
 
 .flip-container { 
-  width: 500px;
-  height: 800px;
+  width: 800px;
+  height: 500px;
   /*margin-left: auto;*/
   /*margin-right: auto;*/
   /*position: absolute;*/
@@ -89,6 +96,11 @@ canvas {
 	height: 50px;
 	float: right;
 	font-size: 12px;
+}
+
+.flip-button:hover {
+	opacity: .8;
+	border: medium pink solid;
 }
 
 .first {

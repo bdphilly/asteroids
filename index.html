@@ -16,61 +16,62 @@
 </head>
 <body style="background-color: black">
   <canvas></canvas>
+<!--   <div class="score">
+    THE SCORE GOES HERE!
+  </div>
+ -->
 
   <section class="flip-container" align="center">
-  <div id="card">
-    <figure class="front">
-      <div class="jumbotron home-screen">
-        <h1 class="header">Asteroids</h1>
-          <small class="subheader">
-            Asteroids are heading for Earth!
-            <br>
-            You are the last hope to save mankind.
-            <br>
-            Do you have what it takes?
-          </small>
-        <br>
-        <button type="button" class="btn start-button">Begin!</button>
-        <button type="button" class="btn flip-button first">
-          <img src="wrench.png" alt="">
-          Controls
-        </button>
-      </div>
-    </figure>
-    <figure class="back">
-      <div class="jumbotron home-screen screen-back">
-        <h1 class="header">Controls</h1>
-          <small class="subheader">
-            Left: Left Arrow or 'A'<br>
-            Right: Right Arrow or 'D'<br>
-            Thrust: Up Arrow or 'W'<br>
-            Reverse: Down Arrow or 'S'<br>
-            Shoot: Spacebar
-          </small>
-        <br>
-        
-        <button type="button" class="btn flip-button second">
-          Back &nbsp;
-          <img src="hand.png" alt="">
-        </button>
-      </div>
-    </figure>
-  </div>
+    <div id="card">
+      <figure class="front">
+        <div class="jumbotron home-screen">
+          <h1 class="header">Asteroids</h1>
+            <small class="subheader">
+              Asteroids are heading for Earth!
+              <br>
+              You are the last hope to save mankind.
+              <br>
+              Do you have what it takes?
+            </small>
+          <br>
+          <button type="button" class="btn start-button">Begin!</button>
+          <button type="button" class="btn flip-button first">
+            <img src="wrench.png" alt="">
+            Controls
+          </button>
+        </div>
+      </figure>
+      <figure class="back">
+        <div class="jumbotron home-screen screen-back">
+          <h1 class="header">Controls</h1>
+            <small class="subheader">
+              Left: Left Arrow or 'A'<br>
+              Right: Right Arrow or 'D'<br>
+              Thrust: Up Arrow or 'W'<br>
+              Reverse: Down Arrow or 'S'<br>
+              Shoot: Spacebar
+            </small>
+          <br>
+          <button type="button" class="btn flip-button second">
+            Back &nbsp;
+            <img src="hand.png" alt="">
+          </button>
+        </div>
+      </figure>
+    </div>
   </section>
-Designed by Bryan Phillips | 2014    
+  <div id="contact">
+    Designed by Bryan Phillips  &nbsp; | &nbsp;  2014
+    <br>
+    <!-- <a href="https://github.com/bdphilly">Github</a> -->
+  </div>
 </body>
 </html>
 <script>
-  // var canvas = document.getElementsByTagName("canvas")[0];
-
-  // $('.flip-container').show();
 
   $('.flip-button').click(function () {
     $('#card').toggleClass('flipped');
   })
-  // $('.flip-button-two').click(function () {
-  //   $('#card').toggleClass('flipped');
-  // })
 
   $('.start-button').click(function(){
       $('.flip-container').hide();
@@ -91,7 +92,7 @@ Designed by Bryan Phillips | 2014
   }
 
   var shipImage = loadImage("ship.png");
-  var asteroidOneThirty = loadImage("asteroid_130.png");         
+  var asteroidOneThirty = loadImage("asteroid_130.png");
   var asteroidEighty = loadImage("asteroid_80.png"); 
   var asteroidTwenty = loadImage("asteroid_20.png"); 
 

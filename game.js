@@ -13,6 +13,7 @@
 		this.stars = [];
 		this.generateStars(300);
 		this.addAsteroids(5);
+		this.score = 0;
 	};
 
 	Game.prototype.start = function (ctx) {
@@ -74,6 +75,18 @@
 		}
 
 		this.ship.draw(ctx);
+
+		this.drawScore();
+
+	};
+
+	Game.prototype.drawScore = function () {
+		this.ctx.fillStyle = "white";
+    this.ctx.font = "bold 28px subatomic";
+    // this.ctx.xCoord = 50;
+		this.ctx.fillText("SCORE:", 50, 50);
+		this.ctx.fillStyle = "blue";
+		this.ctx.fillText(this.score, 200, 50);
 	};
 
 	Game.prototype.move = function () {
