@@ -19,6 +19,11 @@ body {
 
 .header {
 	font-family: 'subatomic';
+	margin-top: 0px;
+}
+
+h1 {
+	margin-top: 0px;
 }
 
 canvas { 
@@ -35,7 +40,7 @@ canvas {
 }
 
 .jumbotron.home-screen {
-	height: 500px;
+	height: 520px;
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
@@ -54,7 +59,7 @@ canvas {
 }
 
 .btn.start-button {
-	margin-top: 30px;
+	margin-top: 20px;
 	background-color: #D712FF;
 	color: white;
 	width: 150px;
@@ -64,6 +69,8 @@ canvas {
 	border-radius: 20px;
 	border: black thin solid;
 	letter-spacing: 3px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 #difficulty3 {
@@ -91,17 +98,14 @@ canvas {
 .flip-container { 
   width: 800px;
   height: 500px;
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  /*position: absolute;*/
-  /*perspective: 600px;*/
   text-align: center;
 }
 
-.flip-button {
+.btn.flip-button {
 	height: 50px;
-	float: right;
-	font-size: 12px;
+	/*float: right;*/
+	/*font-size: 12px;*/
+	border: blue thin solid;
 }
 
 .flip-button:hover {
@@ -110,13 +114,14 @@ canvas {
 }
 
 .first {
-	margin-top: 50px;
-	font-size: 12px;
+	margin-top: 20px;
+	font-size: 8px;
 	width: 140px;
 }
 
 .second {
 	width: 120px;
+	margin-top: 50px;
 }
 
 #card {
