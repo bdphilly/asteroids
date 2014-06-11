@@ -180,6 +180,12 @@ canvas {
 	background: #FF00FF;
 }
 
+.arrow {
+	/*width: 40px;*/
+	/*height: 40px;*/
+	/*color: white;*/
+}
+
 /*TODO: 
 1.EXIT SCREEN / PAUSE?
 2.MOVE RESPAWINING ASTEROIDS AWAY FROM SHIP!

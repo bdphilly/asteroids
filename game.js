@@ -134,9 +134,6 @@
     		$('.the-home-button').hide();
   		});
 
-
-			// $('canvas').hide();
-			// $('.end-screen').show();
 		}
 	};
 
@@ -145,6 +142,7 @@
     this.ctx.font = "bold 56px neuropolx";
 		this.ctx.fillText("GAME OVER!", this.DIM_X / 3 - 50, this.DIM_Y / 2);
 		this.ctx.font = "bold 36px neuropolx";
+		this.ctx.fillStyle = "white";
 		this.ctx.fillText("Final Score:", this.DIM_X / 3, this.DIM_Y / 2 + 100);
 		this.ctx.fillText(this.score, this.DIM_X / 3 + 350, this.DIM_Y / 2 + 100);
 	};
