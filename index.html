@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DrunkenAsteroids</title>
+    <title>Asteroids</title>
     <script src="keymaster.js"></script>
     <script src="jquery.js"></script>
     <script src="moving_object.js"></script>
@@ -12,28 +12,62 @@
     <script src="star.js"></script>
     <link rel="stylesheet" type="text/css" href="application.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="screen" />
+
 </head>
 <body style="background-color: black">
     <canvas></canvas>
 
-    <div class="jumbotron home-screen" align="center">
-      <h1>Asteroids<h1>
-        <small class="subheader">
-          Asteroids are heading for Earth!
-          <br>
-          You are the last hope to save mankind. Do you have what it takes?
-        </small>
-      <br>
-      <button type="button" class="btn start-button">Begin!</button>
-    </div>
+    <section class="flip-container" align="center">
+      <div id="card">
+        <figure class="front">
+          <div class="jumbotron home-screen">
+            <h1 class="header">Asteroids</h1>
+              <small class="subheader">
+                Asteroids are heading for Earth!
+                <br>
+                You are the last hope to save mankind.
+                <br>
+                Do you have what it takes?
+              </small>
+            <br>
+            <button type="button" class="btn start-button">Begin!</button>
+            <button type="button" class="btn flip-button">
+              <img src="wrench.png" alt="">
+              Controls
+            </button>
+          </div>
+        </figure>
+        <figure class="back">
+          <div class="jumbotron home-screen-back">
+            <h1 class="header">Asteroids</h1>
+              <small class="subheader">
+                THE BACK!
+              </small>
+            <br>
+            
+            <button type="button" class="btn flip-button-two">
+              <img src="wrench.png" alt="">
+              Controls
+            </button>
+          </div>
+        </figure>
+      </div>
+    </section>
 
     <script>
         // var canvas = document.getElementsByTagName("canvas")[0];
-        $('.home-screen').show();
 
+        // $('.flip-container').show();
+
+        $('.flip-button').click(function () {
+          $('#card').toggleClass('flipped');
+        })
+        $('.flip-button-two').click(function () {
+          $('#card').toggleClass('flipped');
+        })
 
         $('.start-button').click(function(){
-            $('.home-screen').hide();
+            $('.flip-container').hide();
             var canvas = document.createElement("canvas");
             $('body').append(canvas);
         
