@@ -154,3 +154,13 @@ canvas {
   -webkit-transform: rotateY( 180deg );
   /*-webkit-transform: translateX( -100% ) rotateY( -180deg );*/
 }
+
+.end-screen {
+	z-index: 1000;
+}
+
+
+/*TODO: 
+1.EXIT SCREEN / PAUSE?
+2.MOVE RESPAWINING ASTEROIDS AWAY FROM SHIP!
+3.ARROWS ON MENU*/

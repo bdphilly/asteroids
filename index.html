@@ -63,13 +63,30 @@
     </div>
   </section>
   <div id="contact">
-    Designed by Bryan Phillips  &nbsp; | &nbsp;  2014
+    Created by Bryan Phillips &nbsp; | &nbsp;  2014
     <br>
     <!-- <a href="https://github.com/bdphilly">Github</a> -->
   </div>
+
+  <div class="jumbotron end-screen">
+    <h1 class="header">GAME OVER!</h1>
+      <small class="subheader">
+        Your score is:
+      </small>
+    <br>
+    <button type="button" class="btn new-game-button">
+      New Game
+      <img src="hand.png" alt="">
+    </button>
+  </div>
+
+
+
 </body>
 </html>
 <script>
+
+  $('.end-screen').hide();
 
   $('.flip-button').click(function () {
     $('#card').toggleClass('flipped');

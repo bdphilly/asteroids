@@ -21,7 +21,7 @@
 		var game = this;
 		var timer = window.setInterval(function() {
 			game.step(ctx)
-			// game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
+			game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
 		}, game.FPS);
 	};
 
@@ -117,7 +117,9 @@
 	Game.prototype.checkCollisions = function () {
 		for (var i = 0; i < this.asteroids.length; i++) {
 			if (this.asteroids[i].isCollidedWith(this.ship)) {
-				window.alert("Game Over Loser!");
+				// window.alert("Game Over Loser!");
+				$('.end-screen').show();
+
 				return true;
 			}
 		}
@@ -127,8 +129,21 @@
 	Game.prototype.stop = function (timer) {
 		if (this.checkCollisions()) {
 			window.clearInterval(timer);
+			this.endGame();
+			// $('canvas').hide();
+			// $('.end-screen').show();
 		}
 	};
+
+	Game.prototype.endGame = function () {
+		this.ctx.fillStyle = "blue";
+    this.ctx.font = "bold 56px neuropolx";
+		this.ctx.fillText("GAME OVER!", this.DIM_X / 3 - 50, this.DIM_Y / 2);
+		this.ctx.font = "bold 36px neuropolx";
+		this.ctx.fillText("Final Score:", this.DIM_X / 3, this.DIM_Y / 2 + 100);
+		this.ctx.fillText(this.score, this.DIM_X / 3 + 350, this.DIM_Y / 2 + 100);
+	};
+
 
 	Game.prototype.checkOffEdge = function () {
 		var game = this;
