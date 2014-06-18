@@ -10,8 +10,8 @@
     <script src="game.js"></script>
     <script src="bullet.js"></script>
     <script src="star.js"></script>
-    <link rel="stylesheet" type="text/css" href="application.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./css/application.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="screen" />
 </head>
 <body style="background-color: black">
 
@@ -37,7 +37,7 @@
           </div>
 
           <button type="button" class="btn flip-button first">
-            <img src="wrench.png" alt="">
+            <img src="./images/wrench.png" alt="">
             Controls
           </button>
         </div>
@@ -51,16 +51,16 @@
               Thrust: Up Arrow or 'W'<br>
               Reverse: Down Arrow or 'S'<br>
               Shoot: Spacebar -->
-              <span style="color: #00E5FF">Left: </span> <img class="arrow" src="left_arrow.png"> or 'A'<br>
-              <span style="color: #00E5FF">Right: </span><img class="arrow" src="right_arrow.png"> or 'D'<br>
-              <span style="color: #00E5FF">Thrust: </span><img class="arrow" src="up_arrow.png"> or 'W'<br>
-              <span style="color: #00E5FF">Reverse: </span><img class="arrow" src="down_arrow.png"> or 'S'<br>
+              <span style="color: #00E5FF">Left: </span> <img class="arrow" src="./images/left_arrow.png"> or 'A'<br>
+              <span style="color: #00E5FF">Right: </span><img class="arrow" src="./images/right_arrow.png"> or 'D'<br>
+              <span style="color: #00E5FF">Thrust: </span><img class="arrow" src="./images/up_arrow.png"> or 'W'<br>
+              <span style="color: #00E5FF">Reverse: </span><img class="arrow" src="./images/down_arrow.png"> or 'S'<br>
               <span style="color: #00E5FF">Shoot: </span>Spacebar
             </small>
           <br>
           <button type="button" class="btn flip-button second">
             Back &nbsp;
-            <img src="hand.png" alt="">
+            <img src="./images/hand.png" alt="">
           </button>
         </div>
       </figure>
@@ -76,7 +76,7 @@
   <div class="the-home-button">
     <button type="button" class="btn home-button">
       Home Screen
-      <img src="home.png" alt="">
+      <img src="./images/home.png" alt="">
     </button>
   </div>
 
@@ -86,8 +86,16 @@
 
   $('.the-home-button').hide();
 
-  $('.flip-button').click(function () {
+  $('.first').click(function () {
     $('#card').toggleClass('flipped');
+    $('.first').hide();
+    $('.second').show();    
+  })
+
+  $('.second').click(function () {
+    $('#card').toggleClass('flipped');
+    $('.second').hide();
+    $('.first').show();
   })
 
   $('.start-button').click(function() {
@@ -108,9 +116,9 @@
     return image;
   }
 
-  var shipImage = loadImage("ship.png");
-  var asteroidOneThirty = loadImage("asteroid_130.png");
-  var asteroidEighty = loadImage("asteroid_80.png"); 
-  var asteroidTwenty = loadImage("asteroid_20.png"); 
+  var shipImage = loadImage("./images/ship.png");
+  var asteroidOneThirty = loadImage("./images/asteroid_130.png");
+  var asteroidEighty = loadImage("./images/asteroid_80.png"); 
+  var asteroidTwenty = loadImage("./images/asteroid_20.png"); 
 
 </script>

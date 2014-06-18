@@ -206,12 +206,4 @@
 		this.bullets.splice(this.bullets.indexOf(bullet), 1);
 	};
 
-	// Game.prototype.start = function (ctx) {
-	// 	var game = this;
-	// 	// game.bindKeyHandlers();
-	// 	var timer = window.setInterval(function() {
-	// 		game.step(ctx)
-	// 		game.stop(timer)
-	// 	}, game.FPS);
-	// };
 })(this);

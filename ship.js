@@ -15,12 +15,6 @@
   Ship.inherits(MovingObject);
 
   Ship.prototype.power = function (impulse) {
-    // this.vel = [this.vel[0] + impulse[0], this.vel[1] + impulse[1]];
-    // var newVel = this.vel;
-  //   newVel[0] += (impulse / 10) * Math.cos((this.direction / 10) * Math.PI);
-  //   newVel[1] += (impulse / 10) * Math.sin((this.direction / 10) * Math.PI);
-  //   this.vel = newVel;
-
     var velX = impulse / 10 * Math.sin(this.direction * Math.PI / 180);
     var velY = impulse / 10 * -Math.cos(this.direction * Math.PI / 180);
     this.vel[0] += velX;
@@ -72,19 +66,9 @@
   Ship.prototype.draw = function (ctx) {
     ctx.save();
     ctx.beginPath();
-    // ctx.fillStyle = this.color;
     ctx.translate(this.pos[0], this.pos[1]);
     ctx.rotate(this.direction * Math.PI / 180);
     ctx.drawImage(shipImage, -(shipImage.width/2), -(shipImage.height/2));
-    // ctx.arc(
-    //  this.pos[0],
-    //  this.pos[1],
-    //  this.radius,
-  //     ((this.direction / 10) + 0.15) * Math.PI,
-  //     ((this.direction / 10) - 0.15) * Math.PI,
-    //  false
-    // );
-    // ctx.fill();
     ctx.restore();
   }
 

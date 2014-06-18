@@ -4,7 +4,6 @@
 	var MovingObject = Asteroids.MovingObject;
 
 	var Asteroid = Asteroids.Asteroid = function(radius) {
-		// MovingObject.call(this, radius, color);
 		this.radius = radius;
 		this.angle = Math.random() * 180;
 	}
@@ -21,7 +20,6 @@
 				conflictingPosition = false;
 			}
 		}
-		// this.pos = [dimX * Math.random(), dimY * Math.random()];
 		this.vel = this.randomVelocity(1);
 	}
 

@@ -36,9 +36,4 @@
 		});
 	};
 
-	// Bullet.prototype.move = function() {
-	// 	this.move();
-	// 	// this.hitAsteroids();
-	// };
-
 })(this);
