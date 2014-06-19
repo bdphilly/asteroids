@@ -19,9 +19,11 @@
 
 	Game.prototype.start = function (ctx) {
 		var game = this;
+		backgroundTrack.play();	
+
 		var timer = window.setInterval(function() {
 			game.step(ctx)
-			game.stop(timer) //PUT THIS BACK IN AFTER TESTING!
+			game.stop(timer)
 		}, game.FPS);
 	};
 
@@ -116,7 +118,6 @@
 	Game.prototype.checkCollisions = function () {
 		for (var i = 0; i < this.asteroids.length; i++) {
 			if (this.asteroids[i].isCollidedWith(this.ship)) {
-				// window.alert("Game Over Loser!");
 				return true;
 			}
 		}
@@ -125,15 +126,17 @@
 
 	Game.prototype.stop = function (timer) {
 		if (this.checkCollisions()) {
+			loadMusic('./audio/GameOver.wav').play();
 			window.clearInterval(timer);
 			this.endGame();
+			backgroundTrack.pause();
+			backgroundTrack.currentTime = 0;
 			$('.the-home-button').show();
 			$('.the-home-button').click(function() {
   	  	$('canvas').remove();
     		$('.flip-container').show();
     		$('.the-home-button').hide();
   		});
-
 		}
 	};
 
@@ -176,12 +179,10 @@
 	};
 
 	Game.prototype.fireBullet = function () {
-		// var newBullet = this.ship.fireBullet(game);
-		// if (newBullet) this.bullets.push(newBullet);
-
 		if (this.ship.shipCharged) {
 			var newBullet = this.ship.fireBullet(this);
 			this.bullets.push(newBullet);
+			loadMusic('./audio/Laser.wav').play();
 		}
 
 	};

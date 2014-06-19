@@ -108,17 +108,27 @@
       canvas.setAttribute("width", game.DIM_X);
       canvas.setAttribute("height", game.DIM_Y);
       game.start(ctx);
+
   });
 
-  function loadImage(name) {
+  function loadImage (name) {
     var image = new Image();
     image.src = name;
     return image;
   }
 
+  function loadMusic (name) {
+    var music = new Audio(name);
+    music.load();
+    return music;
+  };
+
   var shipImage = loadImage("./images/ship.png");
   var asteroidOneThirty = loadImage("./images/asteroid_130.png");
   var asteroidEighty = loadImage("./images/asteroid_80.png"); 
-  var asteroidTwenty = loadImage("./images/asteroid_20.png"); 
+  var asteroidTwenty = loadImage("./images/asteroid_20.png");
+
+  var backgroundTrack = loadMusic('./audio/FinalBattle.mp3');
+  backgroundTrack.loop = true;
 
 </script>
