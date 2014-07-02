@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asteroids</title>
+    <script src="keymaster.js"></script>
+    <script src="jquery.js"></script>
+    <script src="moving_object.js"></script>
+    <script src="asteroid.js"></script>
+    <script src="ship.js"></script>
+    <script src="game.js"></script>
+    <script src="bullet.js"></script>
+    <script src="star.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/application.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" media="screen" />
+</head>
+<body style="background-color: black">
+
+  <section class="flip-container" align="center">
+    <div id="card">
+      <figure class="front">
+        <div class="jumbotron home-screen">
+          <h1 class="header">Asteroids</h1>
+            <small class="subheader">
+              Asteroids are headed for Earth!
+              <br>
+              You are the last hope to save mankind.
+              <br>
+              <span style="color: red">
+                Do you have what it takes?
+              <span>
+            </small>
+          <br>
+          <div class="difficulty-buttons">
+            <button type="button" class="btn start-button" id="difficulty1">Easy</button>
+            <button type="button" class="btn start-button" id="difficulty2">Hard</button>
+            <button type="button" class="btn start-button" id="difficulty3">Insane</button>
+          </div>
+
+          <button type="button" class="btn flip-button first">
+            <img src="./images/wrench.png" alt="">
+            Controls
+          </button>
+        </div>
+      </figure>
+      <figure class="back">
+        <div class="jumbotron home-screen screen-back">
+          <h1 class="header">Controls</h1>
+            <small class="subheader">
+<!--               Left: <img class="arrow" src="left_arrow.png" alt="" width="100px" height:> or 'A'<br>
+              Right: Right Arrow or 'D'<br>
+              Thrust: Up Arrow or 'W'<br>
+              Reverse: Down Arrow or 'S'<br>
+              Shoot: Spacebar -->
+              <span style="color: #00E5FF">Left: </span> <img class="arrow" src="./images/left_arrow.png"> or 'A'<br>
+              <span style="color: #00E5FF">Right: </span><img class="arrow" src="./images/right_arrow.png"> or 'D'<br>
+              <span style="color: #00E5FF">Thrust: </span><img class="arrow" src="./images/up_arrow.png"> or 'W'<br>
+              <span style="color: #00E5FF">Reverse: </span><img class="arrow" src="./images/down_arrow.png"> or 'S'<br>
+              <span style="color: #00E5FF">Shoot: </span>Spacebar
+            </small>
+          <br>
+          <button type="button" class="btn flip-button second">
+            Back &nbsp;
+            <img src="./images/hand.png" alt="">
+          </button>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <div id="contact">
+    Created by Bryan Phillips &nbsp; | &nbsp;  2014
+    <br>
+    <!-- <a href="https://github.com/bdphilly">Github</a> -->
+  </div>
+
+  <div class="the-home-button">
+    <button type="button" class="btn home-button">
+      Home Screen
+      <img src="./images/home.png" alt="">
+    </button>
+  </div>
+
+</body>
+</html>
+<script>
+
+  $('.the-home-button').hide();
+
+  $('.first').click(function () {
+    $('#card').toggleClass('flipped');
+    $('.first').hide();
+    $('.second').show();    
+  })
+
+  $('.second').click(function () {
+    $('#card').toggleClass('flipped');
+    $('.second').hide();
+    $('.first').show();
+  })
+
+  $('.start-button').click(function() {
+      $('.flip-container').hide();
+      var canvas = document.createElement("canvas");
+      $('body').append(canvas);
+      var id = parseInt(this.id.slice(-1));
+      var ctx = canvas.getContext("2d");
+      var game = new Asteroids.Game(ctx, id);
+      canvas.setAttribute("width", game.DIM_X);
+      canvas.setAttribute("height", game.DIM_Y);
+      game.start(ctx);
+
+  });
+
+  function loadImage (name) {
+    var image = new Image();
+    image.src = name;
+    return image;
+  }
+
+  function loadMusic (name, vol) {
+    var music = new Audio(name);
+    music.load();
+    music.volume = vol || 1.0;
+    return music;
+  };
+
+  var shipImage = loadImage("./images/ship.png");
+  var asteroidOneThirty = loadImage("./images/asteroid_130.png");
+  var asteroidEighty = loadImage("./images/asteroid_80.png"); 
+  var asteroidTwenty = loadImage("./images/asteroid_20.png");
+
+  var backgroundTrack = loadMusic('./audio/FinalBattle.mp3');
+  backgroundTrack.loop = true;
+
+</script>
