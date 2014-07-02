@@ -182,7 +182,7 @@
 		if (this.ship.shipCharged) {
 			var newBullet = this.ship.fireBullet(this);
 			this.bullets.push(newBullet);
-			loadMusic('./audio/Laser.wav').play();
+			loadMusic('./audio/Laser.wav', 0.5).play();
 		}
 
 	};

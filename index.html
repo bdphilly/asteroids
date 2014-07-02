@@ -117,9 +117,10 @@
     return image;
   }
 
-  function loadMusic (name) {
+  function loadMusic (name, vol) {
     var music = new Audio(name);
     music.load();
+    music.volume = vol || 1.0;
     return music;
   };
 

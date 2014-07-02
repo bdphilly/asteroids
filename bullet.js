@@ -20,6 +20,7 @@
 		game.asteroids.forEach(function (asteroid) {
 
 			if (bullet.isCollidedWith(asteroid)) {
+				loadMusic('./audio/explosion.wav', 0.4).play();
 				game.removeBullet(bullet);
 				if (asteroid.radius == 65) {
 					game.addAsteroids(1);
